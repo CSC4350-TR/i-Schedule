@@ -14,6 +14,12 @@ class _CalendarState extends State<Calendar> {
   DateTime focusedDay = DateTime.now();
 
   TextEditingController _eventController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
+  TextEditingController starttimeController = TextEditingController();
+  TextEditingController endtimeController = TextEditingController();
+  TextEditingController recipientController = TextEditingController();
+  TextEditingController locationController = TextEditingController();
+  TextEditingController commentController = TextEditingController();
 
   @override
   void initState() {
@@ -90,8 +96,51 @@ class _CalendarState extends State<Calendar> {
           context: context,
           builder: (context) => AlertDialog(
             title: const Text("Add Event"),
-            content: TextFormField(
-              controller: _eventController,
+            content: Column(
+              children: [
+                TextFormField(
+                  controller: _eventController,
+                  decoration: const InputDecoration(
+                    labelText: "Title",
+                  ),
+                ),
+                TextFormField(
+                  controller: dateController,
+                  decoration: const InputDecoration(
+                    labelText: "Date",
+                  ),
+                ),
+                TextFormField(
+                  controller: starttimeController,
+                  decoration: const InputDecoration(
+                    labelText: "Start Time",
+                  ),
+                ),
+                TextFormField(
+                  controller: endtimeController,
+                  decoration: const InputDecoration(
+                    labelText: "End Time",
+                  ),
+                ),
+                TextFormField(
+                  controller: recipientController,
+                  decoration: const InputDecoration(
+                    labelText: "Invitee",
+                  ),
+                ),
+                TextFormField(
+                  controller: locationController,
+                  decoration: const InputDecoration(
+                    labelText: "Location",
+                  ),
+                ),
+                TextFormField(
+                  controller: commentController,
+                  decoration: const InputDecoration(
+                    labelText: "Comments",
+                  ),
+                ),
+              ],
             ),
             actions: [
               TextButton(
